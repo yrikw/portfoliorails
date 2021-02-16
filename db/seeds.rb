@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+tools = ["HTML", "CSS", "Ruby on Rails", "Bootstrap", "Java Script"]
+
+if Tool.count == 0
+   tools.each do |tool|
+    Tool.create(name: tool)
+    puts "created #{tool} tool"
+end
+end

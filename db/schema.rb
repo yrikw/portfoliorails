@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_16_013205) do
+ActiveRecord::Schema.define(version: 2021_02_16_035430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "listing_tools", force: :cascade do |t|
+    t.bigint "listing_id", null: false
+    t.bigint "tool_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["listing_id"], name: "index_listing_tools_on_listing_id"
+    t.index ["tool_id"], name: "index_listing_tools_on_tool_id"
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tools", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +49,6 @@ ActiveRecord::Schema.define(version: 2021_02_16_013205) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "listing_tools", "listings"
+  add_foreign_key "listing_tools", "tools"
 end

@@ -12,6 +12,10 @@
   <%= f.collection_check_boxes :tool_ids, @tools, :id, :name %>
   </div>
 
+  <div class="form-check">
+  <%= f.file_field :picture %>
+  </div>
+
 
 
   <div class="actions">

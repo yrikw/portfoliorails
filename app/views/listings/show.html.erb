@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= image_tag @listing.picture %>
+</p>
+
+<p>
   <strong>Title:</strong>
   <%= @listing.title %>
 </p>
@@ -8,6 +12,11 @@
 <p>
   <strong>Description:</strong>
   <%= @listing.description %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @listing.tool_ids %>
 </p>
 
 <%= link_to 'Edit', edit_listing_path(@listing) %> |

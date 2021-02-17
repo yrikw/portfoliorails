@@ -9,6 +9,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/1 or /listings/1.json
   def show
+    @tools = Listing.find(params[:id])
   end
 
   # GET /listings/new
@@ -63,12 +64,13 @@ class ListingsController < ApplicationController
       @listing = Listing.find(params[:id])
     end
 
+
     def set_up
       @tools = Tool.all
     end
 
     # Only allow a list of trusted parameters through.
     def listing_params
-      params.require(:listing).permit(:title, :description)
+      params.require(:listing).permit(:title, :description, :picture, tool_ids: [])
     end
 end

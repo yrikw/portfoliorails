@@ -1,0 +1,15 @@
+<div class="row">
+<% @listing.each do |listing| %>
+    <div class="col-md-3">
+    <div class="card text-center mt-5" style="width: 18rem;">
+    <%= image_tag listing.picture, class:"card-img-top" %>
+    <div class="card-body">
+    <h5 class="card-title"><%= listing.title %></h5>
+    <p class="card-text"><%= listing.description %></p>
+    <%= link_to "Show More", listing_path(listing.id), class: "btn btn-primary" %>
+    <%= link_to "Github", listing_path(listing.id), class: "btn btn-primary" %>
+  </div>
+</div>
+</div>
+<% end %>
+</div>
